@@ -1,69 +1,66 @@
-﻿namespace HW2;
+﻿namespace HW3;
+
+// Aidan Pantoya CIDM
+// Homework 9/14/2022
 class Program
 {
     static void Main(string[] args)
     {
-        // Aidan Pantoya CIDM 2315 Homework 2
-        // 8/31/2022
-//part 1
-        Console.WriteLine("Homework Part 1:");
-        Console.WriteLine("Enter Letter Grade:");
-        string Letter = Convert.ToString(Console.ReadLine());
-        int output;
-        switch (Letter)
-        {
-            case "A":
-            output = 4;
-            Console.WriteLine($"GPA from Letter grade: {output}");
-            break;
-            case "B":
-            output = 3;
-            Console.WriteLine($"GPA from Letter grade: {output}");
-            break;
-            case "C":
-            output = 2;
-            Console.WriteLine($"GPA from Letter grade: {output}");
-            break;
-            case "D":
-            output = 1;
-            Console.WriteLine($"GPA from Letter grade: {output}");
-            break;
-            case "F":
-            output = 0;
-            Console.WriteLine($"GPA from Letter grade: {output}");
-            break;
-            default: 
-            Console.WriteLine("Wrong Letter Grade!");
-            break;
-        
-        }
-//Part 2
+        // Part 1
+        Console.WriteLine("Enter two different numbers:");
+        int x = Convert.ToInt32(Console.ReadLine());
+        int y = Convert.ToInt32(Console.ReadLine());
+        Console.WriteLine("The Largest number is: " + Large(x,y));
+        // End Part 1
 
-        Console.WriteLine("\nHomework Part 2:");
-        double n1,n2,n3;
-        Console.WriteLine("Please input the first num:");
-        n1 = Convert.ToDouble(Console.ReadLine());
-        Console.WriteLine("Please input the second num:");
-        n2 = Convert.ToDouble(Console.ReadLine());
-        Console.WriteLine("Please input the third num:");
-        n3 = Convert.ToDouble(Console.ReadLine());
-        double smol;
-        if(n1>=n2 && n3>=n2){
-        smol = n2;}
-        else if(n2>=n1 && n3>=n1){
-        smol = n1;}
-        else if(n2>=n3 && n1>=n3){
-        smol = n3;}
-        else {smol = 999999;} // should be impossible
-        Console.WriteLine($"The smallest value is: {smol}");
-
-// part 3
-    Console.WriteLine("\nHomework part 3");
-    Console.WriteLine("Please input a year:");
-        int year = Convert.ToInt32(Console.ReadLine());
-        if (year%4 == 0){
-            Console.WriteLine($"{year} is a leap year");
-        }
-        else Console.WriteLine($"{year} is NOT a leap year");
+        // Part 2
+        Console.WriteLine("Enter N:");
+        int n = Convert.ToInt32(Console.ReadLine());
+        Console.WriteLine("Enter right or left:");
+        string rl = Console.ReadLine();
+        part2(n,rl);
+        // End part 2
     }
-}
+    static int Large(int a, int b) // For part 1
+    {
+        if(a>b)
+        return a;
+        else return b;
+    }
+
+    static void part2(int n, string s) // For part 2
+    {
+        if (s == "left"){
+           for (int i = 1; i <= n; i++)  
+         {  
+            for (int j = 1; j <= i; j++)  
+            {  
+               Console.Write("");  
+            }  
+            for (int k = 1; k <= i; k++)  
+            {  
+               Console.Write("*");  
+            }  
+            Console.WriteLine("");  
+         }  
+        }
+
+    else if (s == "right"){
+        for (int i = 1; i <= n; i++)  
+         {  
+            for (int j = 1; j <= n-i; j++)  
+            {  
+               Console.Write(" ");  
+            }  
+            for (int k = 1; k <= i; k++)  
+            {  
+               Console.Write("*");  
+            }  
+            Console.WriteLine("");  
+         }  
+    }
+
+    else Console.WriteLine("Try again, entered bad info");
+    }
+    }
+    // End part 2
