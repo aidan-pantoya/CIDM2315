@@ -1,0 +1,65 @@
+namespace Funn;
+class Program
+    {
+        static void Main(string[] args)
+        {
+            string ans = "";
+            int count = 5;
+           
+            while (ans != "n" && count > 0)
+            {
+                Console.WriteLine("****Rock Paper Scissors, Start!!****");
+                string[] choices = new string[3] { "rock", "paper", "scissors" };
+                Random rnd = new Random();
+                int n = rnd.Next(0, 3);
+                Console.WriteLine("You have " + count + " points");
+                Console.WriteLine("Please input your choice: rock, paper, or scissors.");
+                string user = Console.ReadLine();
+                Console.WriteLine("--> Your Decision: " + user);
+                Console.WriteLine("--> Computer Decision: " + choices[n]);
+
+                if (user == "rock" && choices[n] == "scissors")
+                {
+                    Console.WriteLine("You win!");
+                    count += 5;
+                }
+                else if (user == "rock" && choices[n] == "paper")
+                {
+                    Console.WriteLine("You Lose!");
+                    count -= 5;
+                }
+                else if (user == "paper" && choices[n] == "rock")
+                {
+                    Console.WriteLine("You win!");
+                    count += 5;
+                }
+                else if (user == "paper" && choices[n] == "scissors")
+                {
+                    Console.WriteLine("You Lose!");
+                    count -= 5;
+                }
+                else if (user == "scissors" && choices[n] == "rock")
+                {
+                    Console.WriteLine("You Lose!");
+                    count -= 5;
+                }
+                else if (user == "scissors" && choices[n] == "paper")
+                {
+                    Console.WriteLine("You win!");
+                    count += 5;
+                }
+                else
+                {
+                    Console.WriteLine("Same choices");
+                }
+                 if(count > 0){
+                Console.WriteLine("--> Play again? Input y to continue, or n to exit");
+                ans = Console.ReadLine();
+            }
+            else Console.WriteLine("Sorry, you don't have enough points, thanks for playing.");
+            }
+            
+Console.WriteLine("Thank you for playing!");
+            
+        }
+    }
