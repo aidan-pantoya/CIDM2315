@@ -1,66 +1,48 @@
-﻿namespace HW3;
+﻿namespace Homework7;
 
-// Aidan Pantoya CIDM
-// Homework 9/14/2022
+class Customer{
+private int cus_id;
+public string cus_name;
+public int cus_age;
+public Customer(int cus_id, string cus_name, int cus_age){
+    this.cus_id = cus_id;
+    this.cus_name = cus_name;
+    this.cus_age = cus_age;
+}
+public void ChangeID(int new_id)
+{
+    cus_id = new_id;
+}
+
+public void PrintCusInfo()
+{
+    Console.WriteLine("Customer: "+cus_id+", name: "+cus_name+", age:"+cus_age);
+}
+public void CompareAge(Customer objCustomer)
+{
+    if(objCustomer.cus_age > this.cus_age)
+    {
+        Console.WriteLine(objCustomer.cus_name + " is older");
+    }
+    else if(objCustomer.cus_age < this.cus_age)
+    {
+        Console.WriteLine(this.cus_name + " is older");
+    }
+    else Console.WriteLine("Same age");
+}
+}
 class Program
 {
     static void Main(string[] args)
     {
-        // Part 1
-        Console.WriteLine("Enter two different numbers:");
-        int x = Convert.ToInt32(Console.ReadLine());
-        int y = Convert.ToInt32(Console.ReadLine());
-        Console.WriteLine("The Largest number is: " + Large(x,y));
-        // End Part 1
-
-        // Part 2
-        Console.WriteLine("Enter N:");
-        int n = Convert.ToInt32(Console.ReadLine());
-        Console.WriteLine("Enter right or left:");
-        string rl = Console.ReadLine();
-        part2(n,rl);
-        // End part 2
+        Customer A = new Customer(110,"Alice",28);
+        A.PrintCusInfo();
+        Customer B = new Customer(111,"Bob",30);
+        B.PrintCusInfo();
+        A.ChangeID(220);
+        A.PrintCusInfo();
+        B.ChangeID(221);
+        B.PrintCusInfo();
+        A.CompareAge(B);
     }
-    static int Large(int a, int b) // For part 1
-    {
-        if(a>b)
-        return a;
-        else return b;
-    }
-
-    static void part2(int n, string s) // For part 2
-    {
-        if (s == "left"){
-           for (int i = 1; i <= n; i++)  
-         {  
-            for (int j = 1; j <= i; j++)  
-            {  
-               Console.Write("");  
-            }  
-            for (int k = 1; k <= i; k++)  
-            {  
-               Console.Write("*");  
-            }  
-            Console.WriteLine("");  
-         }  
-        }
-
-    else if (s == "right"){
-        for (int i = 1; i <= n; i++)  
-         {  
-            for (int j = 1; j <= n-i; j++)  
-            {  
-               Console.Write(" ");  
-            }  
-            for (int k = 1; k <= i; k++)  
-            {  
-               Console.Write("*");  
-            }  
-            Console.WriteLine("");  
-         }  
-    }
-
-    else Console.WriteLine("Try again, entered bad info");
-    }
-    }
-    // End part 2
+}
