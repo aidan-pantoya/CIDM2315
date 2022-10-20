@@ -35,17 +35,15 @@ class Program
         return t;
     }
     
-    static int[,]DoubleArray(int[,]array_2d)
+    static int[,]DoubleArray(int[,] array_2d)
     {
         int[,] newArray = {{0,0,0},{0,0,0},{0,0,0}} ;
         int n = 3;
         for(int i = 0;i<n;i++){
         for(int j = 0;j<n;j++)
         {
-            newArray[i,j] = array_2d[i,j]*2;
-            Console.Write($"{newArray[i,j]} ");     
+            newArray[i,j] = array_2d[i,j]*2; 
         }}
-       Console.WriteLine("");
        return newArray;
     }
     static void Main(string[] args)
@@ -61,6 +59,11 @@ class Program
         PrintAllOddNumber(array_2d);
         Console.WriteLine($"Q2: The sum of the array elements: {ElementSum(array_2d)}");
         Console.WriteLine("Q3: The new 2d array:");
-        DoubleArray(array_2d);
+        int [,] newArr = DoubleArray(array_2d);
+        for(int i = 0; i<3;i++)
+        {for(int j = 0; j<3;j++){
+            Console.Write(newArr[i,j] + " ");
+        }
+        }
     }
 }
